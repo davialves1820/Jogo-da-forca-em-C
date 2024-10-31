@@ -9,7 +9,7 @@
 // Escolha uma das palavras para ser adivinhada
 void armazem_palavras(char *str){
     int i = rand() % 15 + 1;
-    switch(i){
+    switch(i) {
         case 1:
             strcpy(str,"abracadabra");
             break;
@@ -59,7 +59,7 @@ void armazem_palavras(char *str){
 }
 
 // Gerar uma string com caracteres aleatorios
-void gerar_string(int tam, char *string){
+void gerar_string(int tam, char *string) {
     int i;
     for (i = 0; i < tam; i++) {
         // Gera um número aleatório entre 97 e 122 (correspondendo ao intervalo ASCII das letras minúsculas)
@@ -112,27 +112,27 @@ void desenhar_forca(int erros) {
 }
 
 // Elimina o caracter \n
-void eliminar(char *str, int tam){
+void eliminar(char *str, int tam) {
     int i;
-    for(i = 0;i < tam; i++){
-        if(str[i] == '\n')
+    for(i = 0;i < tam; i++) {
+        if (str[i] == '\n')
             break;
         }
     str[i] = '\0';
 }
 
 // Copia a palavra a ser adivinhada
-void palavra_para_adivinhar(char *str){
+void palavra_para_adivinhar(char *str) {
     fgets(str,40,stdin);
     int d = strlen(str);
     eliminar(str,d);
 }
 
 // Retorna se o jogador acertou o caracter(1) ou se errou(0)
-int tentativa(char *str, char chute){
+int tentativa(char *str, char chute) {
     int d =  strlen(str);
-    for(int i = 0;i < d; i++){
-        if(str[i] == chute){
+    for (int i = 0;i < d; i++) {
+        if (str[i] == chute) {
             return 0;
         }
     }
@@ -140,17 +140,17 @@ int tentativa(char *str, char chute){
 }
 
 // Retorna o caracter em minusculo que o usuario digitou
-char letra(){
+char letra() {
     char c;
     scanf(" %c",&c);
     return tolower(c);
 }
 
 // Preenche a string para exibição substituindo os espaços em branco por '_'
-void preencher2(char *str, int tam){ 
+void preencher2(char *str, int tam) { 
     for (int i = 0; i < tam; i++)
     {
-        if(str[i] == ' ')
+        if (str[i] == ' ')
             str[i] = ' ';
         else
             str[i] = '_';
@@ -159,10 +159,10 @@ void preencher2(char *str, int tam){
 }
 
 // Substitui as posições da string com '_' pelo caracter se for correto o chute
-void montar_foca(char *str, char chute, char *armazenar){
+void montar_foca(char *str, char chute, char *armazenar) {
     int d =  strlen(str), i;
-    for(i = 0;i < d; i++){
-        if(str[i] == chute){
+    for (i = 0;i < d; i++) {
+        if (str[i] == chute) {
             armazenar[i] = str[i];
         }
     }
@@ -170,11 +170,11 @@ void montar_foca(char *str, char chute, char *armazenar){
 }
 
 // Exibe a palavra
-void mostrar(char *str){
+void mostrar(char *str) {
     printf("\n%s\n",str);
 }
 
-int main(){
+int main() {
     srand(time(NULL));
     int tentativas = 0, dificuldade;
     char palavra[20];
@@ -186,7 +186,7 @@ int main(){
 
     getchar(); // Captura '\n'
     
-    if (dificuldade == 1){
+    if (dificuldade == 1) {
         armazem_palavras(palavra);
     }
     else {

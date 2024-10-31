@@ -6,6 +6,7 @@
 
 //JOGO DA FORCA
 
+// Escolha uma das palavras para ser adivinhada
 void armazem_palavras(char *str){
     int i = rand() % 15 + 1;
     switch(i){
@@ -57,7 +58,8 @@ void armazem_palavras(char *str){
     }
 }
 
-void gerar_string(int tam,char *string){
+// Gerar uma string com caracteres aleatorios
+void gerar_string(int tam, char *string){
     int i;
     for (i = 0; i < tam; i++) {
         // Gera um número aleatório entre 97 e 122 (correspondendo ao intervalo ASCII das letras minúsculas)
@@ -67,6 +69,7 @@ void gerar_string(int tam,char *string){
     string[i] = '\0';
 }
 
+// Atualiza o desenho de acordo com a quantidade de erros do jogador
 void desenhar_forca(int erros) {
     switch (erros) {
         case 0:
@@ -97,7 +100,7 @@ void desenhar_forca(int erros) {
             printf("  /|\\\n");
             printf("  /\n");
             break;
-        case 6:
+        case 6: // Fim de jogo
             printf("---|\n");
             printf("   O\n");
             printf("  /|\\\n");
@@ -108,7 +111,8 @@ void desenhar_forca(int erros) {
     }
 }
 
-void eliminar(char *str,int tam){
+// Elimina o caracter \n
+void eliminar(char *str, int tam){
     int i;
     for(i = 0;i < tam; i++){
         if(str[i] == '\n')
@@ -117,13 +121,15 @@ void eliminar(char *str,int tam){
     str[i] = '\0';
 }
 
+// Copia a palavra a ser adivinhada
 void palavra_para_adivinhar(char *str){
     fgets(str,40,stdin);
     int d = strlen(str);
     eliminar(str,d);
 }
 
-int tentativa(char *str,char chute){
+// Retorna se o jogador acertou o caracter(1) ou se errou(0)
+int tentativa(char *str, char chute){
     int d =  strlen(str);
     for(int i = 0;i < d; i++){
         if(str[i] == chute){
@@ -133,13 +139,15 @@ int tentativa(char *str,char chute){
     return 1;
 }
 
+// Retorna o caracter em minusculo que o usuario digitou
 char letra(){
     char c;
     scanf(" %c",&c);
     return tolower(c);
 }
 
-void preencher2(char *str,int tam){ 
+// Preenche a string para exibição substituindo os espaços em branco por '_'
+void preencher2(char *str, int tam){ 
     for (int i = 0; i < tam; i++)
     {
         if(str[i] == ' ')
@@ -150,7 +158,8 @@ void preencher2(char *str,int tam){
     str[tam] = '\0';
 }
 
-void montar_foca(char *str,char chute,char *armazenar){
+// Substitui as posições da string com '_' pelo caracter se for correto o chute
+void montar_foca(char *str, char chute, char *armazenar){
     int d =  strlen(str), i;
     for(i = 0;i < d; i++){
         if(str[i] == chute){
@@ -160,6 +169,7 @@ void montar_foca(char *str,char chute,char *armazenar){
     armazenar[i] = '\0';
 }
 
+// Exibe a palavra
 void mostrar(char *str){
     printf("\n%s\n",str);
 }
@@ -169,47 +179,47 @@ int main(){
     int tentativas = 0, dificuldade;
     char palavra[20];
 
-    do{
-    printf("qual a dificuldade facil(1) dificil(2): ");
+    do {
+    printf("qual a dificuldade facil(1) dificil(2): "); // 1-Palavra presente no armazem_palavras(), 2-String de caracter totalmente aleatorio
     scanf("%d",&dificuldade);
-    }while(dificuldade > 2 || dificuldade < 1);
+    } while (dificuldade > 2 || dificuldade < 1); // Verifica se o usuário não digitou um número fora do intervalo
 
-    getchar();
+    getchar(); // Captura '\n'
     
-    if(dificuldade == 1){
+    if (dificuldade == 1){
         armazem_palavras(palavra);
     }
-    else{
-        gerar_string(10,palavra);
+    else {
+        gerar_string(10, palavra); // Gera uma string de até 10 caracteres
     }
     
-    int tam = strlen(palavra);
-    char reserva[tam];
-    preencher2(reserva,tam);
+    int tam = strlen(palavra); // tamanho da palavra a adivinhar
+    char reserva[tam]; // Copia auxiliar 
+    preencher2(reserva,tam); // Inicializa todas as posições de reserva com '_'
 
     printf("boa sorte\n");
-    do{
+    do { // Looping do jogo
         char c;
-        desenhar_forca(tentativas);
-        mostrar(reserva);
+        desenhar_forca(tentativas); // Desenha a forca
+        mostrar(reserva); // Mostra quantos caracteres falta para adivinhar a palavra
 
         printf("chute uma letra:\n");
         c = letra();
         getchar();
 
-        if(tentativa(palavra,c) == 1){
-        tentativas++;
+        if (tentativa(palavra,c) == 1) { // Verifica se o jogador acertou o chute, caso tiver errado adiciona mais um erro
+            tentativas++;
         }
 
         montar_foca(palavra,c,reserva);
         
-    }while(tentativas < 7 && strcmp(reserva,palavra) != 0);
+    } while (tentativas < 7 && strcmp(reserva,palavra) != 0); // Looping encerra se o jogador acertar a palavra o chegar no limite de erros
 
-    if(tentativas == 7){
+    if (tentativas == 7) { // Caso ele tenha perdido
         printf("\n voce perdeu :(\n");
         printf("A palavra era %s\n",palavra);
-        }
-    else{ 
+    }
+    else { // Caso acertou a palavra
         printf("\n voce ganhou :)\n");
         printf("A palavra era %s\n",palavra);
     }

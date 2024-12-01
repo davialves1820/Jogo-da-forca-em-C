@@ -1,6 +1,8 @@
 # Jogo da Forca
 Este é um simples jogo da forca implementado em C, onde o jogador pode escolher entre duas dificuldades: fácil (com palavras predefinidas) ou difícil (com palavras geradas aleatoriamente). O objetivo do jogo é adivinhar a palavra antes de atingir o limite de erros.
 
+---
+
 ## 📋 Funcionalidades
 Escolha de dificuldade:
 - Fácil: O jogo seleciona uma palavra aleatória de uma lista predefinida.
@@ -9,6 +11,8 @@ Escolha de dificuldade:
 Sistema de desenho da forca que evolui a cada erro.  
 Palavras parciais mostradas ao jogador com os caracteres descobertos preenchidos.  
 Detecção de vitória ou derrota.
+
+---
 
 ## 🚀 Como Jogar
 **Ao iniciar o jogo, escolha a dificuldade:**
@@ -20,8 +24,7 @@ Para cada erro, o desenho da forca será atualizado.
 Você descobre a palavra antes de errar 7 vezes (Vitória).
 Você erra 7 vezes antes de descobrir a palavra (Derrota).
 
-## 🛠️ Como Executar
-Copie o código para um arquivo com extensão .c, por exemplo, jogo_da_forca.c.
+---
 
 ## 📂 Estrutura do Código
 Funções principais:
@@ -42,6 +45,8 @@ Atualiza a string com os caracteres acertados pelo jogador.
 
 - tentativa(char *str, char chute)
 Verifica se o jogador acertou ou errou o chute.
+
+---
 
 ## 🎮 Demonstração
 Exemplo de Execução:
@@ -66,6 +71,8 @@ av_____a
 voce ganhou :)
 A palavra era aventura
 ```
+
+---
 
 ## 📌 Observações
 Em caso de dúvida sobre as letras disponíveis, lembre-se que o jogo utiliza somente letras minúsculas do alfabeto.

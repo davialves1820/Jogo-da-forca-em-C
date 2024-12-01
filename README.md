@@ -6,8 +6,8 @@ Escolha de dificuldade:
 - Fácil: O jogo seleciona uma palavra aleatória de uma lista predefinida.
 - Difícil: O jogo gera uma palavra com caracteres aleatórios.
   
-Sistema de desenho da forca que evolui a cada erro.
-Palavras parciais mostradas ao jogador com os caracteres descobertos preenchidos.
+Sistema de desenho da forca que evolui a cada erro.  
+Palavras parciais mostradas ao jogador com os caracteres descobertos preenchidos.  
 Detecção de vitória ou derrota.
 
 ## 🚀 Como Jogar

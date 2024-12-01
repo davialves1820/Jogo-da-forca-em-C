@@ -5,6 +5,7 @@ Este é um simples jogo da forca implementado em C, onde o jogador pode escolher
 Escolha de dificuldade:
 - Fácil: O jogo seleciona uma palavra aleatória de uma lista predefinida.
 - Difícil: O jogo gera uma palavra com caracteres aleatórios.
+  
 Sistema de desenho da forca que evolui a cada erro.
 Palavras parciais mostradas ao jogador com os caracteres descobertos preenchidos.
 Detecção de vitória ou derrota.
@@ -54,12 +55,12 @@ ______
 chute uma letra:
 a
 ---|
-_a_____
+a______a
 
 chute uma letra:
-b
+v
 ---|
-_ab____
+av_____a
 ...
 
 voce ganhou :)

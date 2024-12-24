@@ -12,6 +12,15 @@ int tentativa(char *str, char chute) {
     return 1;
 }
 
+// Função que cria uma palavra substituindo os caracteres a adivinhar por '_'
+void esconder_palavra(char *str, int tam) {
+
+    for (int i = 0; i < tam; i++) {
+        str[i] = '_';
+    }
+    str[tam] = '\0';
+}
+
 // Função que vai desvendando a palavra_escondida de acordo com os acertos do jogador
 void montar_foca(char *str, char chute, char *armazenar) {
 
@@ -23,15 +32,7 @@ void montar_foca(char *str, char chute, char *armazenar) {
     }
 }
 
-// Função que cria uma palavra substituindo os caracteres a adivinhar por '_'
-void esconder_palavra(char *str, int tam) {
-
-    for (int i = 0; i < tam; i++) {
-        str[i] = '_';
-    }
-    str[tam] = '\0';
-}
-
+// Função que ler o caracter chutado pelo jogador
 char letra() {
     
     char c;

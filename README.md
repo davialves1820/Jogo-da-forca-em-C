@@ -4,49 +4,60 @@ Este é um simples jogo da forca implementado em C, onde o jogador pode escolher
 ---
 
 ## 📋 Funcionalidades
-Escolha de dificuldade:
-- Fácil: O jogo seleciona uma palavra aleatória de uma lista predefinida.
-- Difícil: O jogo gera uma palavra com caracteres aleatórios.
+- Escolha de dificuldade:
+  - Fácil: O jogo seleciona uma palavra aleatória de uma lista predefinida.
+  - Difícil: O jogo gera uma palavra com caracteres aleatórios.
   
-Sistema de desenho da forca que evolui a cada erro.  
-Palavras parciais mostradas ao jogador com os caracteres descobertos preenchidos.  
-Detecção de vitória ou derrota.
-
----
-
-## 🚀 Como Jogar
-**Ao iniciar o jogo, escolha a dificuldade:**
-Digite 1 para Fácil.
-Digite 2 para Difícil.
-Tente adivinhar a palavra chutando uma letra por vez.
-Para cada erro, o desenho da forca será atualizado.
-**O jogo termina quando:**
-Você descobre a palavra antes de errar 7 vezes (Vitória).
-Você erra 7 vezes antes de descobrir a palavra (Derrota).
+- Sistema de desenho da forca que evolui a cada erro.  
+- Visualização do progresso do jogador com uma interface de texto simples.  
+- Detecção de vitória ou derrota.
 
 ---
 
 ## 📂 Estrutura do Código
-Funções principais:
-- armazem_palavras(char *str)
-Escolhe uma palavra aleatória de uma lista predefinida.
-
-- gerar_string(int tam, char *string)
-Gera uma palavra aleatória com caracteres minúsculos do alfabeto.
-
-- desenhar_forca(int erros)
-Desenha a forca de acordo com o número de erros.
-
-- preencher2(char *str, int tam)
-Substitui os caracteres de uma string por _, exceto os espaços.
-
-- montar_foca(char *str, char chute, char *armazenar)
-Atualiza a string com os caracteres acertados pelo jogador.
-
-- tentativa(char *str, char chute)
-Verifica se o jogador acertou ou errou o chute.
+- **src**: Arquivos de implementação.
+    - forca.c: Controla o fluxo principal do jogo.
+    - palavras.c: Gerencia a seleção de palavras (do banco ou geradas aleatoriamente).
+    - jogo.c: Lógica principal do jogo da forca.
+    - exibir_jogo.c: Funções para desenhar a forca e exibir informações.
+- **include**: Cabeçalhos correspondentes aos módulos.
+    - palavras.h
+    - jogo.h
+    - exibir_jogo.h
+- **data**:
+    - palavras.txt: Banco de dados contendo as palavras.
+- **Makefile**: Automação da compilação do projeto.
 
 ---
+
+
+## Compilação e execução
+
+### Compilação
+```
+make
+```
+
+### Execução
+```
+./bin/programa
+```
+
+---
+
+## 🚀 Instruções do jogo
+
+- Escolha a dificuldade:
+  - 1: Palavras do banco de dados.
+  - 2: Palavras geradas aleatoriamente.
+ 
+- O jogo inicia com o desenho da forca e espaços representados por _ para cada letra da palavra.
+- Digite letras para adivinhar a palavra.
+- Cada acerto revela a posição da letra na palavra.
+- Cada erro adiciona uma parte ao desenho da forca.
+- O jogo termina quando:
+  - O jogador adivinha a palavra completamente.
+  - O jogador comete 7 erros.
 
 ## 🎮 Demonstração
 Exemplo de Execução:
@@ -75,5 +86,5 @@ A palavra era aventura
 ---
 
 ## 📌 Observações
-Em caso de dúvida sobre as letras disponíveis, lembre-se que o jogo utiliza somente letras minúsculas do alfabeto.
-A dificuldade difícil gera palavras aleatórias que podem não fazer sentido.
+- Em caso de dúvida sobre as letras disponíveis, lembre-se que o jogo utiliza somente letras minúsculas do alfabeto.
+- A dificuldade difícil gera palavras aleatórias que podem não fazer sentido.

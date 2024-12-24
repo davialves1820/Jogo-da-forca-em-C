@@ -14,24 +14,24 @@ Este é um simples jogo da forca implementado em C, onde o jogador pode escolher
 
 ---
 
-## 📂 Estrutura do Código
-- **src**: Arquivos de implementação.
+## 🗂️ Estrutura do Código
+- 📂 **src**: Arquivos de implementação.
     - forca.c: Controla o fluxo principal do jogo.
     - palavras.c: Gerencia a seleção de palavras (do banco ou geradas aleatoriamente).
     - jogo.c: Lógica principal do jogo da forca.
     - exibir_jogo.c: Funções para desenhar a forca e exibir informações.
-- **include**: Cabeçalhos correspondentes aos módulos.
+- 📂 **include**: Cabeçalhos correspondentes aos módulos.
     - palavras.h
     - jogo.h
     - exibir_jogo.h
-- **data**:
+- 📂 **data**:
     - palavras.txt: Banco de dados contendo as palavras.
 - **Makefile**: Automação da compilação do projeto.
 
 ---
 
 
-## Compilação e execução
+## ⚙️ Compilação e execução
 
 ### Compilação
 ```
@@ -45,7 +45,7 @@ make
 
 ---
 
-## 🚀 Instruções do jogo
+## 🎮 Instruções do jogo
 
 - Escolha a dificuldade:
   - 1: Palavras do banco de dados.
@@ -59,7 +59,7 @@ make
   - O jogador adivinha a palavra completamente.
   - O jogador comete 7 erros.
 
-## 🎮 Demonstração
+## 🖥️ Demonstração
 Exemplo de Execução:
 ```
 qual a dificuldade facil(1) dificil(2): 1
